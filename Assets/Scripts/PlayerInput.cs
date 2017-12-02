@@ -9,7 +9,7 @@ public class PlayerInput : MonoBehaviour
 	private Vector3 _movement;
 	private Transform _t;
 
-	private const float SPEED = 4f;
+	private const float SPEED = 5f;
 	private const float DASH_SPEED = 20f;
 	private const float DASH_TIME = 0.5f;
 
@@ -30,9 +30,12 @@ public class PlayerInput : MonoBehaviour
 	{
 		if (_isDashing) return;
 
-		_dash = Input.GetButton("Fire1");
 		_xAxis = Input.GetAxis("Horizontal");
 		_yAxis = Input.GetAxis("Vertical");
+		_dash = Input.GetButton("Fire1");
+
+		_movement = new Vector3(_xAxis, 0f, _yAxis).normalized * Time.deltaTime * SPEED;
+		_t.LookAt(_t.position + _movement);
 
 		if (_dash)
 		{
@@ -41,17 +44,13 @@ public class PlayerInput : MonoBehaviour
 		}
 		else
 		{
-			_movement = new Vector3(_xAxis, 0f, _yAxis).normalized * Time.deltaTime * SPEED;
-			_t.LookAt(_t.position + _movement);
 			_t.Translate(_movement, Space.World);
 		}
 
 	}
 
 	private IEnumerator Dash()
-	{
-		// step #1: decelerated speed boost
-		
+	{	
 		float currentDashTime = 0f;
 		while (currentDashTime < DASH_TIME)
 		{
