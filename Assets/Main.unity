@@ -270,6 +270,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114097350591394400, guid: 86bab8c1642ae9047a2c0e12083c2308,
+        type: 2}
+      propertyPath: _dashAnimaton.m_Curve.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4491105099672114, guid: 86bab8c1642ae9047a2c0e12083c2308, type: 2}
       propertyPath: m_LocalPosition.x
       value: -0.35700893
@@ -302,21 +307,50 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 4821053801019154, guid: 86bab8c1642ae9047a2c0e12083c2308, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0.67093015
+    - target: {fileID: 114097350591394400, guid: 86bab8c1642ae9047a2c0e12083c2308,
+        type: 2}
+      propertyPath: _dashAnimaton.m_Curve.Array.data[0].inSlope
+      value: -1.9040506
       objectReference: {fileID: 0}
-    - target: {fileID: 4821053801019154, guid: 86bab8c1642ae9047a2c0e12083c2308, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0.2232783
+    - target: {fileID: 114097350591394400, guid: 86bab8c1642ae9047a2c0e12083c2308,
+        type: 2}
+      propertyPath: _dashAnimaton.m_Curve.Array.data[0].outSlope
+      value: -1.9040506
       objectReference: {fileID: 0}
-    - target: {fileID: 4821053801019154, guid: 86bab8c1642ae9047a2c0e12083c2308, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0.2232781
+    - target: {fileID: 114097350591394400, guid: 86bab8c1642ae9047a2c0e12083c2308,
+        type: 2}
+      propertyPath: _dashAnimaton.m_Curve.Array.data[1].time
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4821053801019154, guid: 86bab8c1642ae9047a2c0e12083c2308, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 0.6709296
+    - target: {fileID: 114097350591394400, guid: 86bab8c1642ae9047a2c0e12083c2308,
+        type: 2}
+      propertyPath: _dashAnimaton.m_Curve.Array.data[1].value
+      value: 0.010482073
+      objectReference: {fileID: 0}
+    - target: {fileID: 114097350591394400, guid: 86bab8c1642ae9047a2c0e12083c2308,
+        type: 2}
+      propertyPath: _dashAnimaton.m_RotationOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114097350591394400, guid: 86bab8c1642ae9047a2c0e12083c2308,
+        type: 2}
+      propertyPath: _dashAnimaton.m_Curve.Array.data[0].value
+      value: 0.9895179
+      objectReference: {fileID: 0}
+    - target: {fileID: 114097350591394400, guid: 86bab8c1642ae9047a2c0e12083c2308,
+        type: 2}
+      propertyPath: _dashAnimaton.m_Curve.Array.data[0].time
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114097350591394400, guid: 86bab8c1642ae9047a2c0e12083c2308,
+        type: 2}
+      propertyPath: _dashAnimaton.m_Curve.Array.data[1].inSlope
+      value: -0.33486098
+      objectReference: {fileID: 0}
+    - target: {fileID: 114097350591394400, guid: 86bab8c1642ae9047a2c0e12083c2308,
+        type: 2}
+      propertyPath: _dashAnimaton.m_Curve.Array.data[1].outSlope
+      value: -0.33486098
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 86bab8c1642ae9047a2c0e12083c2308, type: 2}
