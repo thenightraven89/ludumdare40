@@ -198,6 +198,53 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1128166559
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4973358534503316, guid: 8172462e89d18cc419ec0cb6692a1685, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -0.54
+      objectReference: {fileID: 0}
+    - target: {fileID: 4973358534503316, guid: 8172462e89d18cc419ec0cb6692a1685, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4973358534503316, guid: 8172462e89d18cc419ec0cb6692a1685, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 7.17
+      objectReference: {fileID: 0}
+    - target: {fileID: 4973358534503316, guid: 8172462e89d18cc419ec0cb6692a1685, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4973358534503316, guid: 8172462e89d18cc419ec0cb6692a1685, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4973358534503316, guid: 8172462e89d18cc419ec0cb6692a1685, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4973358534503316, guid: 8172462e89d18cc419ec0cb6692a1685, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4973358534503316, guid: 8172462e89d18cc419ec0cb6692a1685, type: 2}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 65104410923398892, guid: 8172462e89d18cc419ec0cb6692a1685,
+        type: 2}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 8172462e89d18cc419ec0cb6692a1685, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1232706829
 GameObject:
   m_ObjectHideFlags: 0
@@ -270,11 +317,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114097350591394400, guid: 86bab8c1642ae9047a2c0e12083c2308,
-        type: 2}
-      propertyPath: _dashAnimaton.m_Curve.Array.size
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 4491105099672114, guid: 86bab8c1642ae9047a2c0e12083c2308, type: 2}
       propertyPath: m_LocalPosition.x
       value: -0.35700893
@@ -309,48 +351,43 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 114097350591394400, guid: 86bab8c1642ae9047a2c0e12083c2308,
         type: 2}
-      propertyPath: _dashAnimaton.m_Curve.Array.data[0].inSlope
-      value: -1.9040506
+      propertyPath: _recoilAnimation.m_Curve.Array.data[0].inSlope
+      value: -0.9989147
       objectReference: {fileID: 0}
     - target: {fileID: 114097350591394400, guid: 86bab8c1642ae9047a2c0e12083c2308,
         type: 2}
-      propertyPath: _dashAnimaton.m_Curve.Array.data[0].outSlope
-      value: -1.9040506
+      propertyPath: _recoilAnimation.m_Curve.Array.data[0].outSlope
+      value: -0.9989147
       objectReference: {fileID: 0}
     - target: {fileID: 114097350591394400, guid: 86bab8c1642ae9047a2c0e12083c2308,
         type: 2}
-      propertyPath: _dashAnimaton.m_Curve.Array.data[1].time
+      propertyPath: _recoilAnimation.m_Curve.Array.data[1].time
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114097350591394400, guid: 86bab8c1642ae9047a2c0e12083c2308,
         type: 2}
-      propertyPath: _dashAnimaton.m_Curve.Array.data[1].value
-      value: 0.010482073
+      propertyPath: _recoilAnimation.m_Curve.Array.data[1].value
+      value: 0.0005426407
       objectReference: {fileID: 0}
     - target: {fileID: 114097350591394400, guid: 86bab8c1642ae9047a2c0e12083c2308,
         type: 2}
-      propertyPath: _dashAnimaton.m_RotationOrder
+      propertyPath: _recoilAnimation.m_Curve.Array.data[1].inSlope
+      value: -0.9989147
+      objectReference: {fileID: 0}
+    - target: {fileID: 114097350591394400, guid: 86bab8c1642ae9047a2c0e12083c2308,
+        type: 2}
+      propertyPath: _recoilAnimation.m_Curve.Array.data[1].outSlope
+      value: -0.9989147
+      objectReference: {fileID: 0}
+    - target: {fileID: 114097350591394400, guid: 86bab8c1642ae9047a2c0e12083c2308,
+        type: 2}
+      propertyPath: _recoilAnimation.m_Curve.Array.data[0].time
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114097350591394400, guid: 86bab8c1642ae9047a2c0e12083c2308,
         type: 2}
-      propertyPath: _dashAnimaton.m_Curve.Array.data[0].value
-      value: 0.9895179
-      objectReference: {fileID: 0}
-    - target: {fileID: 114097350591394400, guid: 86bab8c1642ae9047a2c0e12083c2308,
-        type: 2}
-      propertyPath: _dashAnimaton.m_Curve.Array.data[0].time
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114097350591394400, guid: 86bab8c1642ae9047a2c0e12083c2308,
-        type: 2}
-      propertyPath: _dashAnimaton.m_Curve.Array.data[1].inSlope
-      value: -0.33486098
-      objectReference: {fileID: 0}
-    - target: {fileID: 114097350591394400, guid: 86bab8c1642ae9047a2c0e12083c2308,
-        type: 2}
-      propertyPath: _dashAnimaton.m_Curve.Array.data[1].outSlope
-      value: -0.33486098
+      propertyPath: _recoilAnimation.m_Curve.Array.data[0].value
+      value: 0.99945736
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 86bab8c1642ae9047a2c0e12083c2308, type: 2}
