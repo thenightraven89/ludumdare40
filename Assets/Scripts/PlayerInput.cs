@@ -56,8 +56,6 @@ public class PlayerInput : MonoBehaviour
 		}
 		else
 		{
-			Debug.Log(_movement.sqrMagnitude);
-
 			if (_movement.sqrMagnitude > 0.000001f)
 			{
 				_animator.Play("walk");

@@ -26,6 +26,7 @@ public class PatrolBehaviour : MonoBehaviour
 
 		if (_targetPlayer == null)
 		{
+			_animator.Play("walk");
 			if (_patrolTargets.Length > 0)
 			{
 				if (_target == null || PlanarDistance(_t.position, _target.position) < float.Epsilon)
@@ -38,8 +39,14 @@ public class PatrolBehaviour : MonoBehaviour
 		}
 		else
 		{
+			if (PlanarDistance(_t.position, _targetPlayer.position) <= _agent.stoppingDistance)
+			{
+				_agent.isStopped = true;
+			}
+			else
 			{
 				_agent.SetDestination(_targetPlayer.position);
+				_agent.isStopped = false;
 				_animator.Play("walk");
 			}
 		}
@@ -54,7 +61,6 @@ public class PatrolBehaviour : MonoBehaviour
 
 	private void SetTargetPlayer(Transform target)
 	{
-		Debug.Log(">>> new target set to " + target.name);
 		_targetPlayer = target;
 	}
 

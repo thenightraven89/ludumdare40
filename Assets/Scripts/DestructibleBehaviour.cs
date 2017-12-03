@@ -35,6 +35,7 @@ public class DestructibleBehaviour : MonoBehaviour
 
 	private void BeginDestruction()
 	{
+		PSManager.Instance.EmitBlood(30, transform.position);
 		Destroy(gameObject);
 	}
 
