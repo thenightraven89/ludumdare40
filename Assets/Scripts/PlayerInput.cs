@@ -17,10 +17,15 @@ public class PlayerInput : MonoBehaviour
 	private const float RECOIL_SPEED = 10f;
 	private const float RECOIL_TIME = 0.75f;
 
+	private const int DAMAGE = 1;
+
 	public AnimationCurve _dashAnimaton;
 	public AnimationCurve _recoilAnimation;
 
-	private int _damage = 1;
+	private bool _isDashing;
+
+	[SerializeField]
+	private Animator _animator;
 
 	private void Awake()
 	{
@@ -51,13 +56,25 @@ public class PlayerInput : MonoBehaviour
 		}
 		else
 		{
+			Debug.Log(_movement.sqrMagnitude);
+
+			if (_movement.sqrMagnitude > 0.000001f)
+			{
+				_animator.Play("walk");
+			}
+			else
+			{
+				_animator.Play("idle");
+			}
+
 			_t.Translate(_movement, Space.World);
 		}
-
 	}
 
 	private IEnumerator Dash()
-	{	
+	{
+		_animator.Play("dash");
+		_isDashing = true;
 		float currentDashTime = 0f;
 		float currentDashSpeed = 0f;
 		while (currentDashTime < DASH_TIME)
@@ -70,7 +87,9 @@ public class PlayerInput : MonoBehaviour
 			yield return null;
 		}
 
+		_isDashing = false;
 		_isUnavailableForInput = false;
+		//_animator.Play("idle");
 	}
 
 	private IEnumerator Recoil()
@@ -92,15 +111,19 @@ public class PlayerInput : MonoBehaviour
 
 	private void OnTriggerEnter(Collider other)
 	{
-		var destructible = other.GetComponent<DestructibleBehaviour>();
-		if (destructible != null)
+		if (_isDashing)
 		{
-			var blood = destructible.TakeDamage(_damage);
+			var destructible = other.GetComponent<DestructibleBehaviour>();
+			if (destructible != null)
+			{
+				var blood = destructible.TakeDamage(DAMAGE);
+
+				StopAllCoroutines();
+				_isDashing = false;
+
+				_isUnavailableForInput = true;
+				StartCoroutine(Recoil());
+			}
 		}
-
-		StopAllCoroutines();
-
-		_isUnavailableForInput = true;
-		StartCoroutine(Recoil());
 	}
 }

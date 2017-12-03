@@ -5,6 +5,13 @@ public class DestructibleBehaviour : MonoBehaviour
 	[SerializeField]
 	private int _hp;
 
+	private Animator _animator;
+
+	private void Awake()
+	{
+		_animator = GetComponent<Animator>();
+	}
+
 	public int TakeDamage(int damage)
 	{
 		// subtract resistance to damage and then
@@ -16,6 +23,11 @@ public class DestructibleBehaviour : MonoBehaviour
 		{
 			BeginDestruction();
 		}
+		else
+		{
+			// take damage animation
+			_animator.Play("takeDamage");
+		}
 
 		// return blood
 		return actualDamage;
@@ -24,5 +36,10 @@ public class DestructibleBehaviour : MonoBehaviour
 	private void BeginDestruction()
 	{
 		Destroy(gameObject);
+	}
+
+	public bool IsAlive()
+	{
+		return _hp > 0;
 	}
 }
