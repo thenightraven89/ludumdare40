@@ -35,9 +35,11 @@ public class AttackBehaviour : MonoBehaviour
 
 	private IEnumerator Attack()
 	{
-		while (_target != null && _target.IsAlive())
+		SendMessageUpwards("PauseMovement");
+
+		while (_target != null && _target.IsAlive() && Vector3.Distance(_target.transform.position, transform.position) < _damageRadius)
 		{
-			//_animator.Play("attack");
+			_animator.Play("meleeAttack");
 			yield return new WaitForSeconds(_anticipationLength);
 			if (Vector3.Distance(_target.transform.position, transform.position) < _damageRadius)
 			{
@@ -45,5 +47,7 @@ public class AttackBehaviour : MonoBehaviour
 			}
 			yield return new WaitForSeconds(_recoveryLength);
 		}
+
+		SendMessageUpwards("ResumeMovement");
 	}
 }
