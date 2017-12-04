@@ -16,8 +16,10 @@ public class PatrolBehaviour : MonoBehaviour
 	{
 		_t = transform;
 		_agent = GetComponent<NavMeshAgent>();
+		_agent.autoBraking = false;
 		_animator = GetComponent<Animator>();
 		_isPaused = false;
+		SetClosestPatrolTarget();
 	}
 
 	private void Update()
@@ -26,37 +28,44 @@ public class PatrolBehaviour : MonoBehaviour
 
 		if (_targetPlayer == null)
 		{
-			_animator.Play("walk");
 			if (_patrolTargets.Length > 0)
 			{
-				if (_target == null || PlanarDistance(_t.position, _target.position) < float.Epsilon)
+				if (!_agent.pathPending && _agent.remainingDistance <= _agent.stoppingDistance)
 				{
 					_patrolTargetIndex = (_patrolTargetIndex + 1) % _patrolTargets.Length;
 					_target = _patrolTargets[_patrolTargetIndex];
-					_agent.SetDestination(_target.position);
+					_agent.destination = _target.position;
+					_animator.Play("walk");
 				}
 			}
 		}
 		else
 		{
-			if (PlanarDistance(_t.position, _targetPlayer.position) <= _agent.stoppingDistance)
+			if (!_agent.pathPending && _agent.remainingDistance <= _agent.stoppingDistance)
 			{
-				_agent.isStopped = true;
+				_animator.Play("meleeAttack");
 			}
 			else
 			{
-				_agent.SetDestination(_targetPlayer.position);
-				_agent.isStopped = false;
+				_agent.destination = _targetPlayer.position;
 				_animator.Play("walk");
 			}
 		}
 	}
 
-	private float PlanarDistance(Vector3 from, Vector3 to)
+	public int _damage;
+
+	public void DealDamage()
 	{
-		Vector3 planarFrom = new Vector3(from.x, 0f, from.z);
-		Vector3 planarTo = new Vector3(to.x, 0f, to.z);
-		return Vector3.Distance(planarFrom, planarTo);
+		_agent.destination = _targetPlayer.position;
+		if (_targetPlayer != null && !_agent.pathPending && _agent.remainingDistance <= _agent.stoppingDistance)
+		{
+			_targetPlayer.GetComponent<DestructibleBehaviour>().TakeDamage(_damage);
+		}
+		else
+		{
+			_animator.Play("idle");
+		}
 	}
 
 	private void SetTargetPlayer(Transform target)
@@ -77,18 +86,7 @@ public class PatrolBehaviour : MonoBehaviour
 			}
 		}
 
-		_agent.SetDestination(_target.position);
+		_agent.destination = _target.position;
 		_animator.Play("walk");
-	}
-
-	private void PauseMovement()
-	{
-		_agent.isStopped = true;
-		_isPaused = true;
-	}
-
-	private void ResumeMovement()
-	{
-		_isPaused = false;
 	}
 }

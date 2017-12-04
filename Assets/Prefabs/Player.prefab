@@ -287,7 +287,6 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
-  _animator: {fileID: 95974798181793154}
 --- !u!114 &114175619088177238
 MonoBehaviour:
   m_ObjectHideFlags: 1

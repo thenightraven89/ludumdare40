@@ -24,11 +24,11 @@ public class PlayerInput : MonoBehaviour
 
 	private bool _isDashing;
 
-	[SerializeField]
 	private Animator _animator;
 
 	private void Awake()
 	{
+		_animator = GetComponent<Animator>();
 		_xAxis = 0f;
 		_yAxis = 0f;
 		_t = transform;
@@ -56,7 +56,7 @@ public class PlayerInput : MonoBehaviour
 		}
 		else
 		{
-			if (_movement.sqrMagnitude > 0.000001f)
+			if (_movement.magnitude > 0f)
 			{
 				_animator.Play("walk");
 			}
